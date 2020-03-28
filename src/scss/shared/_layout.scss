@@ -1,0 +1,14 @@
+.l-noscript {
+  margin-bottom: $b-l-h * 2rem;
+}
+
+.l-sound-btn-list {
+  list-style-type: none;
+  padding-left: 0.4em;
+
+  &__item {
+    display: inline-block;
+    margin-bottom: 0.4em;
+    margin-right: 0.4em;
+  }
+}

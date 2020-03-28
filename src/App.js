@@ -9,8 +9,6 @@ import './App.scss';
 
 // tags - wai aria, graceful degradation?,
 
-// fixme: put back favicon links?
-
 function App() {
   return <Drumkit />;
 }

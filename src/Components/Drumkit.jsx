@@ -5,6 +5,8 @@ import SoundBtn from './SoundBtn';
 // todo:  autofocus first button on first render
 
 // fixme: import from the public folder?
+
+//
 import soundHiHat from '../audio/hihat.wav';
 import soundChip1 from '../audio/chip1.wav';
 import soundChip2 from '../audio/chip2.wav';
@@ -33,7 +35,7 @@ function Drumkit() {
 
   const soundBtns = soundData.map((data) => (
     // fixme: classname
-    <li className="l-list__item" key={data.key}>
+    <li className="l-sound-btn-list__item" key={data.key}>
       <SoundBtn
         name={data.name}
         keyshortcut={data.key}
@@ -43,10 +45,12 @@ function Drumkit() {
   ));
 
   return (
-    // fixme: classname
-    <ul className="l-list" role="presentation">
-      {soundBtns}
-    </ul>
+    <main className="c-drumkit">
+      <h1 className="c-drumkit__heading t1">Drum Kit</h1>
+      <ul className="l-sound-btn-list" role="presentation">
+        {soundBtns}
+      </ul>
+    </main>
   );
 }
 

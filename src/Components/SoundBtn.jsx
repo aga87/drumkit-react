@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from 'react';
-
 import playAudio from '../Utils';
 
 function SoundBtn(props) {
@@ -14,7 +13,7 @@ function SoundBtn(props) {
     const { key } = e;
 
     if (key !== keyshortcut) return;
-    // fixme:  e.preventDefault() ?
+    // fixme:  here ?
     e.preventDefault();
     playAudio(audioRef.current);
   }
@@ -27,12 +26,12 @@ function SoundBtn(props) {
     <div>
       <button
         type="button"
-        className="o-sound-btn"
+        className="o-btn"
         aria-keyshortcuts={keyshortcut}
         onClick={handleClick}
       >
         {name}
-        <kbd className="o-sound-btn__kbd t2" aria-hidden="true">
+        <kbd className="o-btn__kbd t2" aria-hidden="true">
           {keyshortcut.toUpperCase()}
         </kbd>
       </button>

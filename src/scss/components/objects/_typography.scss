@@ -1,0 +1,7 @@
+.t1 {
+  @include h4($b-l-h, $type-scale);
+}
+
+.t2 {
+  @include h5($b-l-h, $type-scale);
+}

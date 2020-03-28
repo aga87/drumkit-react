@@ -1,0 +1,28 @@
+.c-noscript {
+  display: block;
+  text-align: center;
+
+  &__text {
+    color: $color-html;
+  }
+
+  &__link {
+    // fixme: extract colors
+    color: rgb(187, 181, 181);
+
+    &:visited {
+      color: rgb(187, 181, 181);
+    }
+    &:hover {
+      font-weight: bold;
+    }
+    &:active {
+      font-weight: bold;
+      color: $color-js;
+    }
+    &:focus {
+      //fixme: apply focus globally instead?
+      outline: 3px solid $color-js;
+    }
+  }
+}
