@@ -2,11 +2,6 @@ import React from 'react';
 
 import SoundBtn from './SoundBtn';
 
-// todo:  autofocus first button on first render
-
-// fixme: import from the public folder?
-
-//
 import soundHiHat from '../audio/hihat.wav';
 import soundChip1 from '../audio/chip1.wav';
 import soundChip2 from '../audio/chip2.wav';
@@ -17,12 +12,7 @@ import soundBass from '../audio/bass.wav';
 import soundKick from '../audio/kick.wav';
 
 function Drumkit() {
-  // fixme: on window
-
-  //   const keys = ['a', 's', 'd', 'f', 'h', 'j', 'k', 'l'];
-
   const soundData = [
-    // todo: add name
     { name: 'Hi-hat', key: 'a', audio: soundHiHat },
     { name: 'Chip1', key: 's', audio: soundChip1 },
     { name: 'Chip2', key: 'd', audio: soundChip2 },
@@ -34,7 +24,6 @@ function Drumkit() {
   ];
 
   const soundBtns = soundData.map((data) => (
-    // fixme: classname
     <li className="l-sound-btn-list__item" key={data.key}>
       <SoundBtn
         name={data.name}
@@ -45,7 +34,7 @@ function Drumkit() {
   ));
 
   return (
-    <main className="c-drumkit">
+    <main className="c-drumkit" role="main">
       <h1 className="c-drumkit__heading t1">Drum Kit</h1>
       <ul className="l-sound-btn-list" role="presentation">
         {soundBtns}

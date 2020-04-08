@@ -1,7 +1,8 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import playAudio from '../Utils';
 
 function SoundBtn(props) {
+  const [keyPlaying, setKeyPlaying] = useState('');
   const audioRef = useRef(null);
   const { name, keyshortcut, audioFile } = props;
 
@@ -11,22 +12,29 @@ function SoundBtn(props) {
 
   function handleKeyDown(e) {
     const { key } = e;
-
     if (key !== keyshortcut) return;
-    // fixme:  here ?
     e.preventDefault();
     playAudio(audioRef.current);
+    setKeyPlaying(key);
+  }
+
+  function handleKeyUp(e) {
+    const { key } = e;
+    if (key !== keyshortcut) return;
+    e.preventDefault();
+    setKeyPlaying('');
   }
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('keyup', handleKeyUp);
   });
 
   return (
     <div>
       <button
         type="button"
-        className="o-btn"
+        className={keyPlaying === keyshortcut ? 'o-btn is-active' : 'o-btn'}
         aria-keyshortcuts={keyshortcut}
         onClick={handleClick}
       >

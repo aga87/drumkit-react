@@ -1,13 +1,16 @@
 .c-drumkit {
   display: block;
   padding: 0 10px;
-  //fixme:
-  min-height: 100%;
+  height: 100%;
   text-align: center;
 
   &__heading {
     padding: (1rem * $b-l-h) 0;
-    // fixme: make buttons smaller for the iphone 5?
+  }
+}
+
+@media only screen and (min-width: 375px) {
+  .c-drumkit__heading {
     padding: (2rem * $b-l-h) 0;
   }
 }

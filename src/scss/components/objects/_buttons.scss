@@ -29,6 +29,7 @@
   &.is-active {
     background: $color-react;
     color: $grey;
+    border-color: $color-react;
     outline: none;
   }
 }
