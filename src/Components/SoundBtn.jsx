@@ -2,9 +2,9 @@ import React, { useRef, useEffect, useState } from 'react';
 import playAudio from '../Utils';
 
 function SoundBtn(props) {
-  const [keyPlaying, setKeyPlaying] = useState('');
+  const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
-  const { name, keyshortcut, audioFile } = props;
+  const { name, keyShortcut, audioFile } = props;
 
   function handleClick() {
     playAudio(audioRef.current);
@@ -12,17 +12,17 @@ function SoundBtn(props) {
 
   function handleKeyDown(e) {
     const { key } = e;
-    if (key !== keyshortcut) return;
+    if (key !== keyShortcut) return;
     e.preventDefault();
     playAudio(audioRef.current);
-    setKeyPlaying(key);
+    setIsPlaying(true);
   }
 
   function handleKeyUp(e) {
     const { key } = e;
-    if (key !== keyshortcut) return;
+    if (key !== keyShortcut) return;
     e.preventDefault();
-    setKeyPlaying('');
+    setIsPlaying(false);
   }
 
   useEffect(() => {
@@ -34,13 +34,13 @@ function SoundBtn(props) {
     <div>
       <button
         type="button"
-        className={keyPlaying === keyshortcut ? 'o-btn is-active' : 'o-btn'}
-        aria-keyshortcuts={keyshortcut}
+        className={isPlaying ? 'o-btn is-active' : 'o-btn'}
+        aria-keyshortcuts={keyShortcut}
         onClick={handleClick}
       >
         {name}
         <kbd className="o-btn__kbd t2" aria-hidden="true">
-          {keyshortcut.toUpperCase()}
+          {keyShortcut.toUpperCase()}
         </kbd>
       </button>
       <audio src={audioFile} ref={audioRef}>

@@ -1,16 +1,33 @@
 import React from 'react';
 
-// fixme: Drum Kit
-import Drumkit from './Components/Drumkit';
+import DrumKit from './Components/DrumKit';
+
+import soundHiHat from './audio/hihat.wav';
+import soundChip1 from './audio/chip1.wav';
+import soundChip2 from './audio/chip2.wav';
+import soundSnare from './audio/snare.wav';
+import soundTom1 from './audio/tom1.wav';
+import soundTom2 from './audio/tom2.wav';
+import soundBass from './audio/bass.wav';
+import soundKick from './audio/kick.wav';
+
 import './App.scss';
 
-// todo: head html
-// noscript tag in index html
-
-// tags - wai aria, graceful degradation?,
-
 function App() {
-  return <Drumkit />;
+  return (
+    <DrumKit
+      soundData={[
+        { name: 'Hi-hat', key: 'a', audio: soundHiHat },
+        { name: 'Chip1', key: 's', audio: soundChip1 },
+        { name: 'Chip2', key: 'd', audio: soundChip2 },
+        { name: 'Snare', key: 'f', audio: soundSnare },
+        { name: 'Tom1', key: 'h', audio: soundTom1 },
+        { name: 'Tom2', key: 'j', audio: soundTom2 },
+        { name: 'Bass', key: 'k', audio: soundBass },
+        { name: 'Kick', key: 'l', audio: soundKick },
+      ]}
+    />
+  );
 }
 
 export default App;
