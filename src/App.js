@@ -11,8 +11,6 @@ import soundTom2 from './audio/tom2.wav';
 import soundBass from './audio/bass.wav';
 import soundKick from './audio/kick.wav';
 
-import './App.scss';
-
 function App() {
   return (
     <DrumKit
