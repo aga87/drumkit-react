@@ -1,5 +1,5 @@
 import React from 'react';
-import DrumKit from './Components/DrumKit';
+import Drumkit from './Components/Drumkit';
 import soundHiHat from './audio/hihat.wav';
 import soundChip1 from './audio/chip1.wav';
 import soundChip2 from './audio/chip2.wav';
@@ -11,7 +11,7 @@ import soundKick from './audio/kick.wav';
 
 function App() {
   return (
-    <DrumKit
+    <Drumkit
       soundData={[
         { name: 'Hi-hat', key: 'a', audio: soundHiHat },
         { name: 'Chip1', key: 's', audio: soundChip1 },

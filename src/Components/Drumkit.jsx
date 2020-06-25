@@ -1,7 +1,7 @@
 import React from 'react';
 import SoundBtn from './SoundBtn';
 
-function DrumKit(props) {
+function Drumkit(props) {
   const { soundData } = props;
 
   const soundBtns = soundData.map((data) => (
@@ -24,4 +24,4 @@ function DrumKit(props) {
   );
 }
 
-export default DrumKit;
+export default Drumkit;
