@@ -1,13 +1,13 @@
 import React from 'react';
 import Drumkit from './Components/Drumkit';
-import soundHiHat from './audio/hihat.wav';
-import soundChip1 from './audio/chip1.wav';
-import soundChip2 from './audio/chip2.wav';
-import soundSnare from './audio/snare.wav';
-import soundTom1 from './audio/tom1.wav';
-import soundTom2 from './audio/tom2.wav';
+import soundHiHat from './audio/hihat.mp3';
+import soundChip1 from './audio/chip1.mp3';
+import soundChip2 from './audio/chip2.mp3';
+import soundSnare from './audio/snare.mp3';
+import soundTom1 from './audio/tom1.mp3';
+import soundTom2 from './audio/tom2.mp3';
 import soundBass from './audio/bass.mp3';
-import soundKick from './audio/kick.wav';
+import soundKick from './audio/kick.mp3';
 
 function App() {
   return (
