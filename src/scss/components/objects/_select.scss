@@ -1,0 +1,21 @@
+@mixin input {
+  @include s1($b-l-h, $type-scale);
+  font-family: inherit;
+  font-weight: bold;
+  padding: 0 0.5em;
+  border: 2px solid $grey;
+  border-radius: 5px;
+  background: $black;
+  color: $white;
+
+  &:focus {
+    border-color: $color-react;
+    -webkit-box-shadow: 0 0 8px $color-react;
+    box-shadow: 0 0 8px $color-react;
+    outline: none;
+  }
+}
+
+.o-select {
+  @include input;
+}

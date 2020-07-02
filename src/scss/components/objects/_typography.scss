@@ -5,3 +5,7 @@
 .t2 {
   @include h5($b-l-h, $type-scale);
 }
+
+.s1 {
+  @include s1($b-l-h, $type-scale);
+}

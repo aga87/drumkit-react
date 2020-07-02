@@ -1,7 +1,7 @@
 import React from 'react';
 import SoundBtn from './SoundBtn';
 
-function Drumkit(props) {
+function SoundBtns(props) {
   const { soundData } = props;
 
   const soundBtns = soundData.map((data) => (
@@ -15,13 +15,10 @@ function Drumkit(props) {
   ));
 
   return (
-    <main className="c-drumkit" role="main">
-      <h1 className="c-drumkit__heading t1">Drum Kit</h1>
-      <ul className="l-sound-btn-list" role="presentation">
-        {soundBtns}
-      </ul>
-    </main>
+    <ul className="l-sound-btn-list" role="presentation">
+      {soundBtns}
+    </ul>
   );
 }
 
-export default Drumkit;
+export default SoundBtns;

@@ -1,0 +1,10 @@
+.c-toolbar {
+  display: block;
+  text-align: center;
+
+  &__label {
+    display: block;
+    color: $color-js;
+    font-weight: bold;
+  }
+}

@@ -9,3 +9,9 @@
   font-size: $h5;
   line-height: ceil($h5 / $b-l-h) * ($b-l-h / $h5);
 }
+
+@mixin s1($b-l-h, $type-scale) {
+  $s1: 1rem / $type-scale;
+  font-size: $s1;
+  line-height: ceil($s1 / $b-l-h) * ($b-l-h / $s1);
+}

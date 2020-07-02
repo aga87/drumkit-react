@@ -1,6 +1,7 @@
 .l-sound-btn-list {
   list-style-type: none;
   padding-left: 0.4em;
+  padding-bottom: $b-l-h * 1rem;
 
   &__item {
     display: inline-block;
