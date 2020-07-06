@@ -10,6 +10,14 @@
   background: $white-01;
   transition: transform 0.1s ease-out;
 
+  &--orange {
+    border-color: $orange;
+  }
+
+  &--grey {
+    border-color: $light-grey;
+  }
+
   &__kbd {
     display: block;
     font-family: $font-stack2;

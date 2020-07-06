@@ -2,7 +2,7 @@ import React from 'react';
 import SoundBtn from './SoundBtn';
 
 function SoundBtns(props) {
-  const { soundData } = props;
+  const { soundData, skin } = props;
 
   const soundBtns = soundData.map((data) => (
     <li className="l-sound-btn-list__item" key={data.key}>
@@ -10,6 +10,7 @@ function SoundBtns(props) {
         name={data.name}
         keyShortcut={data.key}
         audioFile={data.audio}
+        skin={skin}
       />
     </li>
   ));

@@ -4,7 +4,7 @@ import playAudio from '../Utils';
 function SoundBtn(props) {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
-  const { name, keyShortcut, audioFile } = props;
+  const { name, keyShortcut, audioFile, skin } = props;
 
   function handleClick() {
     playAudio(audioRef.current);
@@ -30,11 +30,25 @@ function SoundBtn(props) {
     window.addEventListener('keyup', handleKeyUp);
   });
 
+  function getClassName(isActive, color) {
+    if (isActive) {
+      if (color !== 'purple') {
+        return `o-btn o-btn--${color} is-active`;
+      }
+      return 'o-btn is-active';
+    }
+    // if inactive
+    if (color !== 'purple') {
+      return `o-btn o-btn--${color}`;
+    }
+    return 'o-btn';
+  }
+
   return (
     <div>
       <button
         type="button"
-        className={isPlaying ? 'o-btn is-active' : 'o-btn'}
+        className={getClassName(isPlaying, skin)}
         aria-keyshortcuts={keyShortcut}
         onClick={handleClick}
       >
