@@ -1,4 +1,5 @@
 @mixin input {
+  display: inline-block;
   @include s1($b-l-h, $type-scale);
   font-family: inherit;
   font-weight: bold;

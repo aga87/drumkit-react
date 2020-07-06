@@ -9,8 +9,16 @@ import soundTom2 from './audio/tom2.mp3';
 import soundBass from './audio/bass.mp3';
 import soundKick from './audio/kick.mp3';
 
+import sound2Snare from './audio/2snare.mp3';
+import sound2HiHat from './audio/2hihat.mp3';
+import sound2Tom1 from './audio/2tom1.mp3';
+import sound2Tom2 from './audio/2tom2.mp3';
+import sound2Cymbal1 from './audio/2cymbal1.mp3';
+import sound2Cymbal2 from './audio/2cymbal2.mp3';
+import sound2Kick from './audio/2kick.mp3';
+
 function App() {
-  // fixme: mode setMode?
+  // fixme: mode setMode? npm run build
   const [selected, setSelected] = useState('drumkit1');
 
   const soundData1 = [
@@ -24,6 +32,16 @@ function App() {
     { name: 'Kick', key: 'l', audio: soundKick },
   ];
 
+  const soundData2 = [
+    { name: 'Snare', key: 'a', audio: sound2Snare },
+    { name: 'Hi-hat', key: 's', audio: sound2HiHat },
+    { name: 'Tom1', key: 'd', audio: sound2Tom1 },
+    { name: 'Tom2', key: 'f', audio: sound2Tom2 },
+    { name: 'Cymbal1', key: 'h', audio: sound2Cymbal1 },
+    { name: 'Cymbal2', key: 'j', audio: sound2Cymbal2 },
+    { name: 'Kick', key: 'k', audio: sound2Kick },
+  ];
+
   function handleClick(e) {
     setSelected(e.target.value);
   }
@@ -34,7 +52,10 @@ function App() {
     <div>
       <main className="c-drumkit" role="main">
         <h1 className="c-drumkit__heading t1">Drum Kit</h1>
-        <SoundBtns soundData={soundData1} />
+        {/* <SoundBtns soundData={soundData1} /> */}
+        <SoundBtns
+          soundData={selected === 'drumkit1' ? soundData1 : soundData2}
+        />
       </main>
       {/*todo:  https://www.w3.org/TR/wai-aria-practices-1.1/examples/toolbar/toolbar.html */}
 
