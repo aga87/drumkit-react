@@ -15,12 +15,12 @@ import sound2Tom2 from './audio/2tom2.mp3';
 import sound2Cymbal1 from './audio/2cymbal1.mp3';
 import sound2Cymbal2 from './audio/2cymbal2.mp3';
 import sound2Kick from './audio/2kick.mp3';
+import toolsSVG from './img/tools.svg';
 
-// fixme: clean up event listener in soundbtn?
+// fixme: clean up event listener in soundbtn? npm run build
 
 function App() {
-  // fixme: mode setMode? npm run build
-  const [selected, setSelected] = useState('drumkit1');
+  const [mode, setMode] = useState('drumkit1');
   const [skin, setSkin] = useState('purple');
 
   const soundData1 = [
@@ -45,12 +45,14 @@ function App() {
   ];
 
   function handleClick(e) {
-    setSelected(e.target.value);
+    setMode(e.target.value);
   }
 
   function handleSkinClick(e) {
     setSkin(e.target.value);
   }
+
+  // todo: aria-selected?
 
   // todo: new screenshot and descr
   // todo: test accessibility/ check ie layout
@@ -59,41 +61,48 @@ function App() {
       <main className="c-drumkit" role="main">
         <h1 className="c-drumkit__heading t1">Drum Kit</h1>
         <SoundBtns
-          soundData={selected === 'drumkit1' ? soundData1 : soundData2}
+          soundData={mode === 'drumkit1' ? soundData1 : soundData2}
           skin={skin}
         />
       </main>
       {/*todo:  https://www.w3.org/TR/wai-aria-practices-1.1/examples/toolbar/toolbar.html */}
 
-      <div className="c-toolbar" role="toolbar">
-        <div>
+      <div className="c-toolbar l-toolbar-flex l-wrapper" role="toolbar">
+        <div className="l-toolbar-flex__item">
+          <img
+            src={toolsSVG}
+            className="c-toolbar__svg-icon"
+            alt=""
+            aria-hidden="true"
+          />
+        </div>
+
+        <div className="l-toolbar-flex__item">
           <label className="c-toolbar__label s1" htmlFor="modes">
             Mode
           </label>
           <select className="o-select" id="modes" size="1">
-            {/* todo: aria-selected?  */}
             <option
               value="drumkit1"
-              selected={selected === 'drumkit1'}
+              selected={mode === 'drumkit1'}
               onClick={handleClick}
             >
               Drum Kit 1
             </option>
             <option
               value="drumkit2"
-              selected={selected === 'drumkit2'}
+              selected={mode === 'drumkit2'}
               onClick={handleClick}
             >
               Drum Kit 2
             </option>
           </select>
         </div>
-        <div>
+        <div className="l-toolbar-flex__item">
           <label className="c-toolbar__label s1" htmlFor="skins">
             Skin
           </label>
           <select className="o-select" id="skins" size="1">
-            {/* todo: aria-selected?  */}
             <option
               value="purple"
               selected={skin === 'purple'}

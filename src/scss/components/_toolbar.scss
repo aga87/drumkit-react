@@ -1,19 +1,30 @@
 .c-toolbar {
-  // display: block;
+  text-align: center;
+  border: 2px solid $light-grey;
+  border-radius: 5px;
+  padding: ($b-l-h * 0.25rem) 0 ($b-l-h * 0.25rem) 0;
+
+  &__svg-icon {
+    height: $b-l-h * 1.5rem;
+    width: auto;
+    margin-top: 10px;
+  }
+
+  &__label {
+    display: block;
+    color: $yellow;
+    font-weight: bold;
+  }
+}
+
+.l-toolbar-flex {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
   justify-content: center;
-  text-align: center;
-  padding: 10px;
-  width: 250px;
-  border-radius: 5px;
-  border: 2px solid $light-grey;
-  margin: 0 auto;
+  padding-left: 20px;
 
-  &__label {
-    display: block;
-    color: $color-js;
-    font-weight: bold;
+  &__item {
+    margin-right: 20px;
   }
 }

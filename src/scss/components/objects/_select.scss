@@ -10,9 +10,9 @@
   color: $white;
 
   &:focus {
-    border-color: $color-react;
-    -webkit-box-shadow: 0 0 8px $color-react;
-    box-shadow: 0 0 8px $color-react;
+    border-color: $cyan;
+    -webkit-box-shadow: 0 0 8px $cyan;
+    box-shadow: 0 0 8px $cyan;
     outline: none;
   }
 }
