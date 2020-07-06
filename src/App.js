@@ -52,7 +52,6 @@ function App() {
     <div>
       <main className="c-drumkit" role="main">
         <h1 className="c-drumkit__heading t1">Drum Kit</h1>
-        {/* <SoundBtns soundData={soundData1} /> */}
         <SoundBtns
           soundData={selected === 'drumkit1' ? soundData1 : soundData2}
         />
