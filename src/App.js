@@ -66,54 +66,57 @@ function App() {
       {/*todo:  https://www.w3.org/TR/wai-aria-practices-1.1/examples/toolbar/toolbar.html */}
 
       <div className="c-toolbar" role="toolbar">
-        <label className="c-toolbar__label s1" htmlFor="modes">
-          Mode:
-        </label>
-        <select className="o-select" id="modes" size="1">
-          {/* todo: aria-selected?  */}
-          <option
-            value="drumkit1"
-            selected={selected === 'drumkit1'}
-            onClick={handleClick}
-          >
-            Drum Kit 1
-          </option>
-          <option
-            value="drumkit2"
-            selected={selected === 'drumkit2'}
-            onClick={handleClick}
-          >
-            Drum Kit 2
-          </option>
-        </select>
-
-        <label className="c-toolbar__label s1" htmlFor="skins">
-          Skin:
-        </label>
-        <select className="o-select" id="skins" size="1">
-          {/* todo: aria-selected?  */}
-          <option
-            value="purple"
-            selected={skin === 'purple'}
-            onClick={handleSkinClick}
-          >
-            Purple
-          </option>
-          <option
-            value="orange"
-            selected={skin === 'orange'}
-            onClick={handleSkinClick}
-          >
-            Orange
-          </option>
-          <option
-            value="grey"
-            selected={skin === 'grey'}
-            onClick={handleSkinClick}
-          >
-            Grey
-          </option>
-        </select>
+        <div>
+          <label className="c-toolbar__label s1" htmlFor="modes">
+            Mode
+          </label>
+          <select className="o-select" id="modes" size="1">
+            {/* todo: aria-selected?  */}
+            <option
+              value="drumkit1"
+              selected={selected === 'drumkit1'}
+              onClick={handleClick}
+            >
+              Drum Kit 1
+            </option>
+            <option
+              value="drumkit2"
+              selected={selected === 'drumkit2'}
+              onClick={handleClick}
+            >
+              Drum Kit 2
+            </option>
+          </select>
+        </div>
+        <div>
+          <label className="c-toolbar__label s1" htmlFor="skins">
+            Skin
+          </label>
+          <select className="o-select" id="skins" size="1">
+            {/* todo: aria-selected?  */}
+            <option
+              value="purple"
+              selected={skin === 'purple'}
+              onClick={handleSkinClick}
+            >
+              Purple
+            </option>
+            <option
+              value="orange"
+              selected={skin === 'orange'}
+              onClick={handleSkinClick}
+            >
+              Orange
+            </option>
+            <option
+              value="grey"
+              selected={skin === 'grey'}
+              onClick={handleSkinClick}
+            >
+              Grey
+            </option>
+          </select>
+        </div>
       </div>
     </div>
   );
