@@ -81,18 +81,23 @@ function App() {
           <label className="c-toolbar__label s1" htmlFor="modes">
             Mode
           </label>
-          <select className="o-select" id="modes" size="1">
+          <select
+            className="o-select"
+            id="modes"
+            size="1"
+            onChange={handleClick}
+          >
             <option
               value="drumkit1"
               selected={mode === 'drumkit1'}
-              onClick={handleClick}
+              // onClick={handleClick}
             >
               Drum Kit 1
             </option>
             <option
               value="drumkit2"
               selected={mode === 'drumkit2'}
-              onClick={handleClick}
+              // onClick={handleClick}
             >
               Drum Kit 2
             </option>
@@ -102,25 +107,30 @@ function App() {
           <label className="c-toolbar__label s1" htmlFor="skins">
             Skin
           </label>
-          <select className="o-select" id="skins" size="1">
+          <select
+            className="o-select"
+            id="skins"
+            size="1"
+            onChange={handleSkinClick}
+          >
             <option
               value="purple"
               selected={skin === 'purple'}
-              onClick={handleSkinClick}
+              // onClick={handleSkinClick}
             >
               Purple
             </option>
             <option
               value="orange"
               selected={skin === 'orange'}
-              onClick={handleSkinClick}
+              // onClick={handleSkinClick}
             >
               Orange
             </option>
             <option
               value="grey"
               selected={skin === 'grey'}
-              onClick={handleSkinClick}
+              // onClick={handleSkinClick}
             >
               Grey
             </option>
