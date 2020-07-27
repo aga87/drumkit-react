@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import SoundBtns from './Components/SoundBtns';
 import soundHiHat from './audio/hihat.mp3';
 import soundChip1 from './audio/chip1.mp3';
@@ -18,10 +18,15 @@ import sound2Kick from './audio/2kick.mp3';
 import toolsSVG from './img/tools.svg';
 
 // fixme: clean up event listener in soundbtn? npm run build
+// todo: new screenshot and descr
+// todo: test accessibility
 
 function App() {
   const [mode, setMode] = useState('drumkit1');
   const [skin, setSkin] = useState('purple');
+  const [focused, setFocused] = useState('');
+  const modeRef = useRef(null);
+  const skinRef = useRef(null);
 
   const soundData1 = [
     { name: 'Hi-hat', key: 'a', audio: soundHiHat },
@@ -44,30 +49,73 @@ function App() {
     { name: 'Kick', key: 'k', audio: sound2Kick },
   ];
 
-  function handleClick(e) {
+  function handleChange(e) {
     setMode(e.target.value);
   }
 
-  function handleSkinClick(e) {
+  function handleSkinChange(e) {
     setSkin(e.target.value);
   }
 
-  // todo: aria-selected?
+  function handleModeKeyDown(e) {
+    const { key } = e;
+    switch (key) {
+      case 'Left': // IE/Edge specific value
+      case 'ArrowLeft':
+      case 'Right': // IE/Edge specific value
+      case 'ArrowRight':
+        e.preventDefault();
+        setFocused('skin');
+        break;
+      default:
+    }
+  }
 
-  // todo: new screenshot and descr
-  // todo: test accessibility/ check ie layout
+  function handleSkinKeyDown(e) {
+    const { key } = e;
+    switch (key) {
+      case 'Left': // IE/Edge specific value
+      case 'ArrowLeft':
+      case 'Right': // IE/Edge specific value
+      case 'ArrowRight':
+        e.preventDefault();
+        setFocused('mode');
+        break;
+      default:
+    }
+  }
+
+  useEffect(() => {
+    // Roving tabIndex
+    if (focused === 'mode') {
+      modeRef.current.focus();
+      modeRef.current.setAttribute('tabIndex', '0');
+      skinRef.current.setAttribute('tabIndex', '-1');
+    } else if (focused === 'skin') {
+      skinRef.current.focus();
+      skinRef.current.setAttribute('tabIndex', '0');
+      modeRef.current.setAttribute('tabIndex', '-1');
+    }
+  }, [focused]);
+
   return (
     <div>
-      <main className="c-drumkit" role="main">
+      <main className="c-drumkit" role="main" id="drumkit">
         <h1 className="c-drumkit__heading t1">Drum Kit</h1>
         <SoundBtns
           soundData={mode === 'drumkit1' ? soundData1 : soundData2}
           skin={skin}
         />
       </main>
-      {/*todo:  https://www.w3.org/TR/wai-aria-practices-1.1/examples/toolbar/toolbar.html */}
 
-      <div className="c-toolbar l-toolbar-flex l-wrapper" role="toolbar">
+      {/* Accessible Toolbar 
+        https://www.w3.org/TR/wai-aria-practices-1.1/examples/toolbar/toolbar.html */}
+
+      <div
+        className="c-toolbar l-toolbar-flex l-wrapper"
+        role="toolbar"
+        aria-controls="drumkit"
+      >
         <div className="l-toolbar-flex__item">
           <img
             src={toolsSVG}
@@ -85,22 +133,14 @@ function App() {
             className="o-select"
             id="modes"
             size="1"
-            onChange={handleClick}
+            tabIndex="0"
+            ref={modeRef}
+            onChange={handleChange}
+            onKeyDown={handleModeKeyDown}
+            value={mode}
           >
-            <option
-              value="drumkit1"
-              selected={mode === 'drumkit1'}
-              // onClick={handleClick}
-            >
-              Drum Kit 1
-            </option>
-            <option
-              value="drumkit2"
-              selected={mode === 'drumkit2'}
-              // onClick={handleClick}
-            >
-              Drum Kit 2
-            </option>
+            <option value="drumkit1">Drum Kit 1</option>
+            <option value="drumkit2">Drum Kit 2</option>
           </select>
         </div>
         <div className="l-toolbar-flex__item">
@@ -111,29 +151,15 @@ function App() {
             className="o-select"
             id="skins"
             size="1"
-            onChange={handleSkinClick}
+            tabIndex="-1"
+            ref={skinRef}
+            onChange={handleSkinChange}
+            onKeyDown={handleSkinKeyDown}
+            value={skin}
           >
-            <option
-              value="purple"
-              selected={skin === 'purple'}
-              // onClick={handleSkinClick}
-            >
-              Purple
-            </option>
-            <option
-              value="orange"
-              selected={skin === 'orange'}
-              // onClick={handleSkinClick}
-            >
-              Orange
-            </option>
-            <option
-              value="grey"
-              selected={skin === 'grey'}
-              // onClick={handleSkinClick}
-            >
-              Grey
-            </option>
+            <option value="purple">Purple</option>
+            <option value="orange">Orange</option>
+            <option value="grey">Grey</option>
           </select>
         </div>
       </div>
