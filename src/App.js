@@ -17,10 +17,6 @@ import sound2Cymbal2 from './audio/2cymbal2.mp3';
 import sound2Kick from './audio/2kick.mp3';
 import toolsSVG from './img/tools.svg';
 
-// fixme: clean up event listener in soundbtn? npm run build
-// todo: new screenshot and descr
-// todo: test accessibility
-
 function App() {
   const [mode, setMode] = useState('drumkit1');
   const [skin, setSkin] = useState('purple');
@@ -136,6 +132,7 @@ function App() {
             tabIndex="0"
             ref={modeRef}
             onChange={handleChange}
+            // onBlur={handleChange}
             onKeyDown={handleModeKeyDown}
             value={mode}
           >
@@ -154,6 +151,7 @@ function App() {
             tabIndex="-1"
             ref={skinRef}
             onChange={handleSkinChange}
+            // onBlur={handleSkinChange}
             onKeyDown={handleSkinKeyDown}
             value={skin}
           >

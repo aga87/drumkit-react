@@ -27,7 +27,18 @@ function SoundBtn(props) {
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
+    // Remove event listener on cleanup
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  });
+
+  useEffect(() => {
     window.addEventListener('keyup', handleKeyUp);
+    return () => {
+      // Remove event listener on cleanup
+      window.removeEventListener('keyup', handleKeyUp);
+    };
   });
 
   function getClassName(isActive, color) {

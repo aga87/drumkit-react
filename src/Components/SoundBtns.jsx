@@ -5,7 +5,7 @@ function SoundBtns(props) {
   const { soundData, skin } = props;
 
   const soundBtns = soundData.map((data) => (
-    <li className="l-sound-btn-list__item" key={data.key}>
+    <li className="l-sound-btn-list__item" key={data.key} role="presentation">
       <SoundBtn
         name={data.name}
         keyShortcut={data.key}
